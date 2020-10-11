@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: lightblue;
+    position: relative;
+}
+
+#main-area {
+    position: absolute;
+    border-radius: 20px;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 100px;
+    background-color: linen;
+}
+#player-move, #ai-move {
+    position: absolute;
+    border-radius: 50px;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background-color: linen;
+}
+#player-move {
+    left: 25%;
+}
+#ai-move {
+    left: 75%;
+}
+.rck-plr-img, .scssrs-plr-img, .ppr-plr-img {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+.rck-ai-img, .scssrs-ai-img, .ppr-ai-img {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+.player {
+    position: absolute;
+    left: 50%;
+    top: -20%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+#output {
+    background-color: linen;
+    width: 700px;
+    height: 40px;
+    position: absolute;
+    border-radius: 25px;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    text-align: center;
+}
+.score {
+    position: absolute;
+    background-color: linen;
+    border-radius: 25px;
+    left: 50%;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    font-size: 2rem;
+}
+.move-text {
+    position: absolute;
+    font-size: 2rem;
+    top: -60px;
+}
+#buttons {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 3px 0px;
+    font-size: 1.5rem;
+}
+#vs {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+}
+.hidden {
+    position: absolute;
+    background-color: linen;
+    border-radius: 25px;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 40px;
+    text-align: center;
+    font-size: 2rem;
+    opacity: 0;
+}

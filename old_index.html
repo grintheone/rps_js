@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock Paper Scissors</title>
+    <meta charset='utf-8'>
+    <link href="style.css" rel="stylesheets" type="text/css">
+</head>
+<body>
+    <script>
+        function getNumber() {
+            return Math.floor(Math.random() * 3)
+        }
+
+        function computerPlay() {
+            // Randomly pick a number.
+            choise = getNumber();
+            if (choise == 0) {
+                return 'Rock';
+            } else if (choise == 1) {
+                return 'Paper';
+            } else {
+                return 'Scissors';
+            }
+        }
+
+        function convert(playerSelection) {
+            return playerSelection.slice(0, 1).toUpperCase() + playerSelection.slice(1, playerSelection.length).toLowerCase();
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == computerSelection) {
+                return 'It\'s a tie!';
+            } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+                return `You win this round! ${playerSelection} beats ${computerSelection}`;
+            } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+                return `You win this round! ${playerSelection} beats ${computerSelection}`;
+            } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+                return `You win this round! ${playerSelection} beats ${computerSelection}`;
+            } else {
+                return `You lose this round! ${computerSelection} beats ${playerSelection}`;
+            }
+        }
+
+        function game() {
+            // Declare variables.
+            let scoreHuman = 0;
+            let scoreAI = 0;
+            let playerSelection;
+            let computerSelection;
+            let result;
+            for (let round = 0; round < 5; round++) {
+                // Get data
+                playerSelection = convert(prompt('Make your move! (Rock/Paper/Scissors)'));
+                while (playerSelection !== 'Rock' && playerSelection !== 'Scissors' && playerSelection !== 'Paper') {
+                    console.log('Please enter valid input.');
+                    playerSelection = convert(prompt('Make your move! (Rock/Paper/Scissors)'));
+                }
+                computerSelection = computerPlay();
+
+                result = playRound(playerSelection, computerSelection);
+                console.log(result);
+                // Determine the winner
+                if (result.includes('win')) {
+                    scoreHuman += 1;
+                } else if (result.includes('lose')) {
+                    scoreAI += 1;
+                }
+
+            }
+            if (scoreHuman > scoreAI) {
+                console.log(`Score ${scoreHuman} : ${scoreAI}  You win the game! Congratulations!`);
+            } else if (scoreAI > scoreHuman) {
+                console.log(`Score ${scoreAI} : ${scoreHuman}  You lose the game. AI will take over the world :(`);
+            } else {
+                console.log(`Score ${scoreAI} : ${scoreHuman}  It's a tie! Would you like to play again?`);
+            }
+        }
+
+        game();
+
+    </script>
+</body>
+</html>
